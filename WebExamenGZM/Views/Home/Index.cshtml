@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registro</title>
+    <style>
+        body{
+            background-color: rgba(0,0,0,0.25);
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            overflow:hidden;
+        }
+        form{
+            display:flex;
+            flex-direction: column;
+            width:50%;
+            justify-content:center;
+            text-align:center;
+            border: 1px solid black;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 1px 1px 5px black;
+        }
+        form input, form button{
+            margin-top:1.5%;
+            margin-bottom:1.5%;
+            border:none;
+            border-radius: 5px;
+        }
+        form button{
+            background-color: crimson;
+            color: white;
+            padding:15px;
+            width:20%;
+            margin-left:40%;
+        }
+        .aviso{
+            font-weight:bolder;
+            font-size:5vh;
+            margin-bottom: 2.5%;
+        }
+    </style>
+</head>
+<body>
+    @if (TempData["resultado"] != null)
+     {
+        <div class="aviso">@TempData["resultado"]</div>
+     }
+<form>
+    <h1>Ingresa tus datos</h1>
+    <input type="text" placeholder="Nombre completo" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ-]{2,25}[ ]{0,1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ-]{2,25}[ ]{0,1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ-]{0,25}[ ]{0,1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ-]{0,25}[ ]{0,1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ-]{0,25}[ ]{0,1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ-]{0,25}[ ]{0,1}" title="Nombre(s) Apellido(s)" name="nombreCompleto" autocomplete="off" >
+    <input type="date" name="fechaNacimiento" / >
+    <input type="email" name="correo" placeholder="Correo electrónico" / autocomplete="off" >
+    <button type="submit" formaction="/Home/AgregarDatos">Enviar</button>
+</form>
+</body>
+</html>
